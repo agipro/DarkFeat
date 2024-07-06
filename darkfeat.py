@@ -235,7 +235,7 @@ class DarkFeat(nn.Module):
         ])
         self.clf = nn.Conv2d(128, 2, kernel_size=1)
 
-        state_dict = torch.load(self.config["model_path"])
+        state_dict = torch.load(self.config["model_path"], map_location="cpu")
         new_state_dict = {}
         
         for key in state_dict:
